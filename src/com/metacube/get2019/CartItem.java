@@ -7,17 +7,20 @@ package com.metacube.get2019;
  *
  */
 class CartItem {
+	
+	int itemId;
 	String itemName;
 	int itemQuantity;
 	double itemPrice;
-	
+
 	/**
 	 * It is an constructor which is used to set attributes of cart items.
 	 * @param itemName name of cart item
 	 * @param itemQuantity quantity of cart item
 	 * @param itemPrice price of cart item
 	 */
-	public CartItem (String itemName, int itemQuantity, double itemPrice) {
+	public CartItem (int itemId, String itemName, int itemQuantity, double itemPrice) {
+		this.itemId = itemId;
 		this.itemName = itemName;
 		this.itemQuantity = itemQuantity;
 		this.itemPrice = itemPrice;
@@ -53,5 +56,9 @@ class CartItem {
 	 */
 	public double getItemPrice() {
 		return itemPrice;
+	}
+	
+	public int getItemId(){
+		return itemId;
 	}
 }

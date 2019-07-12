@@ -23,7 +23,7 @@ public class Cart {
 				if (i.getid() == itemId) {
 					System.out.print("Enter quantity for the item = ");
 					int itemQuantity = sc.nextInt();
-					CartItem obj = new CartItem(i.getItemName(), itemQuantity, i.getprice());
+					CartItem obj = new CartItem(i.getid(), i.getItemName(), itemQuantity, i.getprice());
 					cartItemList.add(obj);
 					System.out.println("--------------------------------------");
 					System.out.println("Item is successfully added into cart");
@@ -42,9 +42,10 @@ public class Cart {
 	 */
 	public void updateItem() {
 		try {
-			System.out.print("Enter the name of item which you want to update = ");
+			System.out.print("Enter the id of item which you want to update = ");
 			Scanner sc = new Scanner(System.in);
-			String itemName = sc.nextLine();
+			//String itemName = sc.nextLine();
+			Integer itemId = sc.nextInt();
 			
 			Iterator<CartItem> iterator = cartItemList.iterator();
 			boolean flag = false;
@@ -53,7 +54,7 @@ public class Cart {
 					break;
 				}
 				CartItem i = (CartItem) iterator.next();
-				if(i.getItemName().equals(itemName)) {
+				if(i.getItemId() == itemId) {
 					flag = true;
 					System.out.print("Enter the quantity to which you want to update = ");
 					int itemQuantity = sc.nextInt();
@@ -90,11 +91,11 @@ public class Cart {
 		
 		Iterator<CartItem> iterator = cartItemList.iterator();
 		System.out.println("--------------------------------------");
-		System.out.println("ITEMNAME\tQUANTITY\tCOST");
+		System.out.println("ITEMID\t\tITEMNAME\tQUANTITY\tCOST");
 		System.out.println("--------------------------------------");
 		while (iterator.hasNext()) {
 			CartItem item = (CartItem) iterator.next();
-			System.out.println(item.getItemName()+"\t\t"+item.getItemQuantity()+"\t\t"+item.getItemPrice());
+			System.out.println(item.getItemId()+"\t\t"+item.getItemName()+"\t\t"+item.getItemQuantity()+"\t\t"+item.getItemPrice());
 			
 		}	
 	}
@@ -113,14 +114,14 @@ public class Cart {
 		} 
 		else {
 			System.out.println("--------------------------------------");
-			System.out.println("ITEMNAME\tQUANTITY\tCOST");
+			System.out.println("ITEMID\t\tITEMNAME\tQUANTITY\tCOST");
 			System.out.println("--------------------------------------");
 
 			
 			Iterator itr1 = cartItemList.iterator();
 			while(itr1.hasNext()){
 				CartItem item = (CartItem) itr1.next();
-				System.out.println(item.getItemName()+"\t\t"+item.getItemQuantity()+"\t\t"+item.getItemPrice()*item.getItemQuantity());
+				System.out.println(item.getItemId()+"\t\t"+item.getItemName()+"\t\t"+item.getItemQuantity()+"\t\t"+item.getItemPrice()*item.getItemQuantity());
 				sum += item.getItemPrice() * item.getItemQuantity();
 				
 			}

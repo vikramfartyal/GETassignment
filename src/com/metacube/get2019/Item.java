@@ -10,6 +10,7 @@ class Item
 	int itemId;
 	String itemName;
 	double itemPrice;
+	
 
 	/**
 	 * This is constructor used to set values of 3 attributes and to print them.
