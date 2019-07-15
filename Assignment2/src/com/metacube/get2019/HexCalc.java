@@ -9,18 +9,18 @@ import java.util.Scanner;
  * @author Khushi
  *
  */
-public class Hex {
+public class HexCalc {
 
 	public static void main(String args[]) {
-		HexFunctions obj = new HexFunctions();
+		HexCalcService obj = new HexCalcService();
 		Scanner sc = new Scanner(System.in);
 		String hex1, hex2;
 		int base, n;
 		try {
-			boolean exit = false;
+			boolean isExit = false;
 			do {
 				System.out.println("------------------------");
-				System.out.println("Enter your choice\n ");
+				System.out.println("Enter your choice of operation with hexadecimal numbers : \n ");
 				System.out.println("1. Addition (+)");
 				System.out.println("2. Subtraction (-)");
 				System.out.println("3. Multiplication (x)");
@@ -101,7 +101,7 @@ public class Hex {
 					System.out.println("Hexadeciaml  value = "+hexValue);
 					break;
 				case 8:
-					exit = true;
+					isExit = true;
 					System.out.println("------------------------");
 					System.out.println("Successfully exited");
 					System.out.println("------------------------");
@@ -112,7 +112,7 @@ public class Hex {
 					System.out.println("------------------------");
 
 				}
-			} while (!exit);
+			} while (!isExit);
 		} catch (InputMismatchException e) {
 			System.out.println(e.getStackTrace());
 		}

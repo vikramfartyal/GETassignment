@@ -7,7 +7,7 @@ package com.metacube.get2019;
  * @author Khushi
  *
  */
-class FcfsOperations {
+class JobSchedulerService {
 
 	/**
 	 * This is a method which is used to calculate completion time of processes.
@@ -96,3 +96,4 @@ class FcfsOperations {
 		return maxWaitingTime;
 	}
 }
+

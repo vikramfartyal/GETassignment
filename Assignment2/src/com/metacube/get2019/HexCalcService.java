@@ -3,7 +3,7 @@ package com.metacube.get2019;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-class HexFunctions {
+class HexCalcService {
 
 	/**
 	 * It is method to convert character into decimal value
@@ -207,3 +207,4 @@ class HexFunctions {
 		}
 	}
 }
+

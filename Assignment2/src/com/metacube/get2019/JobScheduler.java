@@ -19,12 +19,14 @@ public class JobScheduler {
 	 */
 	public static void main(String args[]) throws IOException {
 
-		FcfsOperations fo_obj = new FcfsOperations();
+		JobSchedulerService fo_obj = new JobSchedulerService();
 		Scanner sc = new Scanner(System.in);
 		int numberOfProcess;
 		try {
 			System.out.print("Enter the number of processes = ");
 			numberOfProcess = sc.nextInt();
+			System.out.println("-----------------------------------");
+
 	
 			int arv_burst_time_arr[][] = new int[numberOfProcess][2];
 			int[] processId_arr = new int[numberOfProcess];
@@ -73,7 +75,8 @@ public class JobScheduler {
 			double avg = fo_obj.avgWaitingTime(waitingTime_arr, numberOfProcess);
 			int maxWaitTime = fo_obj.maxWaitingTime(waitingTime_arr,
 					numberOfProcess);
-	
+			
+			System.out.println("----------------------------------------------------");
 			System.out.println("ProcessId  BurstTime ArrivalTime WaitingTime TurnAroundTime CompletionTime");
 			for (int i = 0; i < numberOfProcess; i++) {
 				int k = 0, l = 1;
@@ -84,10 +87,16 @@ public class JobScheduler {
 				System.out.println();
 			}
 	
+			System.out.println("-----------------------------------");
 			System.out.println("Average Waiting time is :  " + avg);
+			System.out.println("-----------------------------------");
 			System.out.println("Maximum waiting time is : " + maxWaitTime);
+			System.out.println("-----------------------------------");
 		}catch (InputMismatchException e) {
 			System.out.println(e.getStackTrace());
+		}
+		finally {
+			sc.close();
 		}
 	}
 }
