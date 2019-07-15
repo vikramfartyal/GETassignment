@@ -19,7 +19,7 @@ public class JobScheduler {
 	 */
 	public static void main(String args[]) throws IOException {
 
-		JobSchedulerService fo_obj = new JobSchedulerService();
+		JobSchedulerService job_SS_obj = new JobSchedulerService();
 		Scanner sc = new Scanner(System.in);
 		int numberOfProcess;
 		try {
@@ -67,13 +67,13 @@ public class JobScheduler {
 				}
 			}
 	
-			fo_obj.waitingTime(arv_burst_time_arr, waitingTime_arr, numberOfProcess);
-			fo_obj.completionTime(arv_burst_time_arr, waitingTime_arr,
+			job_SS_obj.waitingTime(arv_burst_time_arr, waitingTime_arr, numberOfProcess);
+			job_SS_obj.completionTime(arv_burst_time_arr, waitingTime_arr,
 					completionTime_arr, numberOfProcess);
-			fo_obj.turnAroundTime(processTurnAroundTime_arr, arv_burst_time_arr,
+			job_SS_obj.turnAroundTime(processTurnAroundTime_arr, arv_burst_time_arr,
 					waitingTime_arr, numberOfProcess);
-			double avg = fo_obj.avgWaitingTime(waitingTime_arr, numberOfProcess);
-			int maxWaitTime = fo_obj.maxWaitingTime(waitingTime_arr,
+			double avg = job_SS_obj.avgWaitingTime(waitingTime_arr, numberOfProcess);
+			int maxWaitTime = job_SS_obj.maxWaitingTime(waitingTime_arr,
 					numberOfProcess);
 			
 			System.out.println("----------------------------------------------------");

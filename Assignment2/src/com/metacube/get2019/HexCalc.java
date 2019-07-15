@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class HexCalc {
 
 	public static void main(String args[]) {
-		HexCalcService obj = new HexCalcService();
+		HexCalcService hex_CS_obj = new HexCalcService();
 		Scanner sc = new Scanner(System.in);
 		String hex1, hex2;
 		int base, n;
@@ -40,7 +40,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					obj.hexAddition(n,base);
+					hex_CS_obj.hexAddition(n,base);
 					break;
 				case 2:
 					System.out.print("Enter the first hexadecimal String = ");
@@ -50,7 +50,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					obj.hexSubtraction(hex1, hex2, base);
+					hex_CS_obj.hexSubtraction(hex1, hex2, base);
 					break;
 				case 3:
 					System.out.print("Enter the no of terms you want to multiply = ");
@@ -59,7 +59,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					obj.hexMultiplication(n,base);
+					hex_CS_obj.hexMultiplication(n,base);
 					break;
 				case 4:
 					System.out.print("Enter the first hexadecimal String = ");
@@ -69,7 +69,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					obj.hexDivision(hex1, hex2, base);
+					hex_CS_obj.hexDivision(hex1, hex2, base);
 					break;
 				case 5:
 					System.out.print("Enter the first hexadecimal String = ");
@@ -79,7 +79,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					obj.compareHexStringss(hex1, hex2);
+					hex_CS_obj.compareHexStringss(hex1, hex2);
 					break;
 				case 6:
 					System.out.print("Enter the hexadecimal String = ");
@@ -87,7 +87,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					int value = obj.hexToDec(hex1, base);
+					int value = hex_CS_obj.hexToDec(hex1, base);
 					System.out.println("Decimal representation = "+value);
 					break;
 				case 7:
@@ -97,7 +97,7 @@ public class HexCalc {
 					System.out.print("Enter the base = ");
 					base = sc.nextInt();
 					sc.nextLine();
-					String hexValue = obj.decTohex(dec1, base);
+					String hexValue = hex_CS_obj.decTohex(dec1, base);
 					System.out.println("Hexadeciaml  value = "+hexValue);
 					break;
 				case 8:
