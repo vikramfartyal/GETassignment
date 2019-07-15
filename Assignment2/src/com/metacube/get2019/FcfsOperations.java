@@ -4,77 +4,78 @@ package com.metacube.get2019;
 /**
  * This is a class which is used to calculate completionTime, waitingTime, turnAroundTime, AverageWaitingTime,
  * MaximumWaitingTime for processes.
- * @author admin
+ * @author Khushi
  *
  */
 class FcfsOperations {
 
 	/**
 	 * This is a method which is used to calculate completion time of processes.
-	 * @param arrivalTime It is an array indicates the arrival time of process. 
-	 * @param burstTime It is an array indicates the time for which process runs.
+	 * @param arv_burst_time_arr It is an array indicates the arrival time and burst time of process. 
 	 * @param waitingTime It is an array indicates the waiting time of process before which it get processed
-	 * @param completionTime it is an array indicates the time at which process comletes its execution.
+	 * @param completionTime it is an array indicates the time at which process completes its execution.
 	 * @param numberOfProcess It indicates the number of processes present.
 	 */
-	public void completionTime(int[] arrivalTime, int[] burstTime,
-			int[] waitingTime, int[] completionTime, int numberOfProcess) {
+	public void completionTime(int arv_burst_time_arr[][],
+			int[] waitingTime_arr, int[] completionTime_arr, int numberOfProcess) {
+		int k = 1, l = 0;
 		for (int i = 0; i < numberOfProcess; i++) {
-			int completeTime = arrivalTime[i] + burstTime[i] + waitingTime[i];
-			completionTime[i] = completeTime;
+			int completeTime = arv_burst_time_arr[i][k] + arv_burst_time_arr[i][l] + waitingTime_arr[i];
+			completionTime_arr[i] = completeTime;
 		}
 	}
 	
 	/**
 	 * It is a method which is used to calculate the turnAroundTime of processes.
-	 * @param turnAroundTime It is an array which indicates the time taken after an arrival for processes
-	 * @param burstTime It is an array indicates the time for which process runs.
-	 * @param waitingTime It is an array indicates the waiting time of process before which it get processed.
+	 * @param turnAroundTime_arr It is an array which indicates the time taken after an arrival for processes
+	 * @param arv_burst_time_arr It is an 2-D array indicates the time for which process runs and arrival time of process.
+	 * @param waitingTime_arr It is an array indicates the waiting time of process before which it get processed.
 	 * @param numberOfProcess It indicates the number of processes present.
 	 */
-	public void turnAroundTime(int[] turnAroundTime, int[] burstTime,
-			int[] waitingTime, int numberOfProcess) {
+	public void turnAroundTime(int[] turnAroundTime_arr, int arv_burst_time_arr[][],
+			int[] waitingTime_arr, int numberOfProcess) {
+		int k=1;
 		for (int i = 0; i < numberOfProcess; i++) {
-			int time = burstTime[i] + waitingTime[i];
-			turnAroundTime[i] = time;
+			int time = arv_burst_time_arr[i][k] + waitingTime_arr[i];
+			turnAroundTime_arr[i] = time;
 		}
 	}
 
 	/**
 	 * It is a method which is used to calculate the time before which a process begin's its execution.
-	 * @param arrivalTime It is an array indicates the arrival time of process.
-	 * @param burstTime It is an array indicates the time for which process runs.
-	 * @param waitingTime It is an array indicates the waiting time of process before which it get processed.
+	 * @param arv_burst_time_arr It is an 2-D array indicates the arrival time and burst time of process.
+	 * @param waitingTime_arr It is an array indicates the waiting time of process before which it get processed.
 	 * @param numberOfProcess It indicates the number of processes present.
 	 */
-	public void waitingTime(int[] arrivalTime, int[] burstTime,
-			int[] waitingTime, int numberOfProcess) {
-		int[] serviceTime = new int[numberOfProcess];
-		serviceTime[0] = 0;
-		waitingTime[0] = 0;
+	public void waitingTime(int arv_burst_time_arr[][],
+			int[] waitingTime_arr, int numberOfProcess) {
+		int[] serviceTime_arr = new int[numberOfProcess];
+		serviceTime_arr[0] = 0;
+		waitingTime_arr[0] = 0;
+		int k=1, l=0;
 		for (int i = 1; i < numberOfProcess; i++) {
-			int time = serviceTime[i - 1] + burstTime[i - 1];
-			serviceTime[i] = time;
-			int waitTime = serviceTime[i] - arrivalTime[i];
-			waitingTime[i] = waitTime;
-			if (waitingTime[i] < 0) {
-				waitingTime[i] = 0;
+			int time = serviceTime_arr[i - 1] + arv_burst_time_arr[i - 1][k];
+			serviceTime_arr[i] = time;
+			int waitTime = serviceTime_arr[i] - arv_burst_time_arr[i][l];
+			waitingTime_arr[i] = waitTime;
+			if (waitingTime_arr[i] < 0) {
+				waitingTime_arr[i] = 0;
 			}
-			serviceTime[i] = time;
+			serviceTime_arr[i] = time;
 		}
 
 	}
 
 	/**
 	 * 
-	 * @param waitingTime It is an array indicates the waiting time of process before which it get processed.
+	 * @param waitingTime_arr It is an array indicates the waiting time of process before which it get processed.
 	 * @param numberOfProcess It indicates the number of processes present.
 	 * @return AverageWaitingtime 
 	 */
-	public double avgWaitingTime(int[] waitingTime, int numberOfProcess) {
+	public double avgWaitingTime(int[] waitingTime_arr, int numberOfProcess) {
 		double averageTime = 0;
 		for (int i = 0; i < numberOfProcess; i++) {
-			averageTime += waitingTime[i];
+			averageTime += waitingTime_arr[i];
 		}
 		averageTime /= numberOfProcess;
 		return averageTime;
@@ -82,15 +83,15 @@ class FcfsOperations {
 
 	/**
 	 * It is a method which is used to calculate maximum waiting time of process.
-	 * @param waitingTime It is an array indicates the waiting time of process before which it get processed.
+	 * @param waitingTime_arr It is an array indicates the waiting time of process before which it get processed.
 	 * @param numberOfProcess It indicates the number of processes present.
 	 * @return MaximumWaitingTime
 	 */
-	public int maxWaitingTime(int[] waitingTime, int numberOfProcess) {
-		int maxWaitingTime = waitingTime[0];
-		for (int i = 0; i < maxWaitingTime; i++) {
-			if (maxWaitingTime < waitingTime[i])
-				maxWaitingTime = waitingTime[i];
+	public int maxWaitingTime(int[] waitingTime_arr, int numberOfProcess) {
+		int maxWaitingTime = waitingTime_arr[0];
+		for (int i = 0; i < numberOfProcess; i++) {
+			if (maxWaitingTime < waitingTime_arr[i])
+				maxWaitingTime = waitingTime_arr[i];
 		}
 		return maxWaitingTime;
 	}

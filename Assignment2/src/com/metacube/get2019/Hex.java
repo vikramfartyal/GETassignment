@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 /**
  * It is a class with main method.
- * @author Admin
+ * @author Khushi
  *
  */
 public class Hex {
@@ -21,13 +21,13 @@ public class Hex {
 			do {
 				System.out.println("------------------------");
 				System.out.println("Enter your choice\n ");
-				System.out.println("1. Addition of hexadecimal number");
-				System.out.println("2. Subtraction of hexadecimal number");
-				System.out.println("3. Multiplication of hexadecimal number");
-				System.out.println("4. Division of hexadecimal number");
-				System.out.println("5. Compare 2 hexadecimal number");
-				System.out.println("6. Hexadecimal to decimal conversion");
-				System.out.println("7. Decimal to hexadecimal conversion");
+				System.out.println("1. Addition (+)");
+				System.out.println("2. Subtraction (-)");
+				System.out.println("3. Multiplication (x)");
+				System.out.println("4. Division (/) ");
+				System.out.println("5. Comparision (><=)");
+				System.out.println("6. Hexadecimal to decimal conversion(H -> D)");
+				System.out.println("7. Decimal to hexadecimal conversion(D -> H)");
 				System.out.println("8. Exit the program");
 				System.out.println("------------------------");
 				int choice = sc.nextInt();
@@ -98,13 +98,14 @@ public class Hex {
 					base = sc.nextInt();
 					sc.nextLine();
 					String hexValue = obj.decTohex(dec1, base);
-					System.out.println("Hexadeciaml value = "+hexValue);
+					System.out.println("Hexadeciaml  value = "+hexValue);
 					break;
 				case 8:
 					exit = true;
 					System.out.println("------------------------");
 					System.out.println("Successfully exited");
 					System.out.println("------------------------");
+					break;
 				default:
 					System.out.println("------------------------");
 					System.out.println("Invalid input");
@@ -115,6 +116,8 @@ public class Hex {
 		} catch (InputMismatchException e) {
 			System.out.println(e.getStackTrace());
 		}
-		
+		finally {
+			sc.close();
+		}
 	}
 }
