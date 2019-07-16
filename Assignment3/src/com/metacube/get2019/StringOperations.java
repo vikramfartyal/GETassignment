@@ -1,6 +1,11 @@
 package com.metacube.get2019;
 
-
+/**
+ * It is class which is has methods to perform operations on string i.e. reverse a string, 
+ * compare 2  strings, swapcase, find longest word in string.
+ * @author Admin
+ *
+ */
 public class StringOperations {
 
 	/**
