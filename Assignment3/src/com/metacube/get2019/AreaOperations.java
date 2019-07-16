@@ -6,7 +6,7 @@ package com.metacube.get2019;
  * @author Khushi
  *
  */
-public class AreaOfShapes {
+public class AreaOperations {
 
 	double area;
 

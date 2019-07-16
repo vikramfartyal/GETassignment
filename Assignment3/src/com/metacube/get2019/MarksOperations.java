@@ -3,7 +3,7 @@ package com.metacube.get2019;
 /**
  * It is a class which has methods to find average, maximum, minimum and
  * percentage of grades
- * @author Admin
+ * @author Khushi
  *
  */
 public class MarksOperations {

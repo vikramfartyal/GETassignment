@@ -3,11 +3,18 @@ package com.metacube.get2019;
 /**
  * It is class which is has methods to perform operations on string i.e. reverse a string, 
  * compare 2  strings, swapcase, find longest word in string.
- * @author Admin
+ * @author Khushi
  *
  */
 public class StringOperations {
 
+	public int getLength(String str) {
+		int count = 0;
+		for (char c : str.toCharArray()) {
+			count++;
+		}
+		return count;
+	}
 	/**
 	 * This is a method which is used to reverse a string without using API function
 	 * @param str It is the string which is to be reverse.
@@ -15,8 +22,10 @@ public class StringOperations {
 	 */
 	public String reverseString(String str) {
 		String reverseString = "";
-		for (int i=(str.length())-1; i>=0; i--){
-			reverseString += str.charAt(i);
+		char[] strCharArray = str.toCharArray();
+		int length = getLength(str);
+		for (int i = length - 1; i >= 0; i--){
+			reverseString += strCharArray[i];
 		}
 		return reverseString;
 	}
@@ -28,14 +37,16 @@ public class StringOperations {
 	 * @return 1 if strings are equal and 0 if not equal.
 	 */
 	public int compare2Strings(String str1, String str2) {
-		int len1 = str1.length();
-		int len2 = str2.length();
+		int len1 = getLength(str1);
+		int len2 = getLength(str2);
+		char[] str1CharArray = str1.toCharArray();
+		char[] str2CharArray = str2.toCharArray();
 		if(len1 != len2) {
 			return 0;
 		}
 		boolean flag = true;
-		for (int i=0; i<len1; i++) {
-			if (str1.charAt(i) != str2.charAt(i)) {
+		for (int i = 0; i < len1; i++) {
+			if (str1CharArray[i] != str2CharArray[i]) {
 				flag = false;
 				break;
 			}
@@ -53,7 +64,8 @@ public class StringOperations {
 	 */
 	public String swapCase(String str) {
 		String swapCaseString = "";
-		for (int i=0; i<(str.length()); i++) {
+		int length = getLength(str);
+		for (int i = 0; i < length; i++) {
 			char ch = str.charAt(i);
 			if ( ch >= 65 && ch <= 90) {
 				ch = (char)(ch + 32);
@@ -76,8 +88,8 @@ public class StringOperations {
 		String[] words_arr = str.split(" ");
 		int length = words_arr.length;
 		largestWord = words_arr[0];
-		for (int i=1; i<length; i++) {
-			if (largestWord.length() <= (words_arr[i].length())) {
+		for (int i = 1; i < length; i++) {
+			if (getLength(largestWord) <= (getLength(words_arr[i]))) {
 				largestWord = words_arr[i];
 			}
 		}

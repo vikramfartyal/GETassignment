@@ -83,6 +83,9 @@ public class MarkSheet {
 		} catch (InputMismatchException e) {
 			System.out.println(e.getStackTrace());
 		}
+		catch (ArithmeticException e) {
+			System.out.println(e.getStackTrace());
+		}
 		finally {
 			sc.close();
 		}

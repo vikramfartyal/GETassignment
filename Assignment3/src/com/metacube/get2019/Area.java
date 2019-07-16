@@ -16,7 +16,7 @@ public class Area {
 	 */
 	public static void main(String args[]) {
 
-		AreaOfShapes aos_obj = new AreaOfShapes();
+		AreaOperations aos_obj = new AreaOperations();
 		Scanner sc = new Scanner(System.in);
 		double area, width, height, radius;
 		boolean isExit = false;
