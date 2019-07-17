@@ -24,7 +24,7 @@ public class StringClass {
 				StringOperations so_obj = new StringOperations();
 				System.out.println("1. Reverse a string");
 				System.out.println("2. Reverse the case of string");
-				System.out.println("3. Comapre two strings");
+				System.out.println("3. Compare two strings");
 				System.out.println("4. Find largest word in a string");
 				System.out.println("5. Exit the program");
 				System.out.println("--------------------------");
