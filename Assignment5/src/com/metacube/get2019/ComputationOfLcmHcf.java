@@ -43,16 +43,13 @@ public class ComputationOfLcmHcf {
 		} else if (b == 0) {
 			return a;
 		}
-		if (a < b) {
-			int temp = a;
-			a = b;
-			b = temp;
-		}
-		rem = a % b;
+		int max = a > b ? a : b;
+		int min = a > b ? b : a;
+		rem = max % min;
 		if (rem == 0) {
 			return b;
 		} else {
-			return hcfOfAB(b, rem);
+			return hcfOfAB(min, rem);
 		}
 	}
 
