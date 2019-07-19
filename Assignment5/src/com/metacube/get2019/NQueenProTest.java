@@ -22,8 +22,8 @@ public class NQueenProTest {
 	}
 	
 	int expectedResult1[][] = new int[][]{{0, 0, 0},
-											{0, 0, 0},
-											{0, 0, 0}};
+						{0, 0, 0},
+						{0, 0, 0}};
 
 	@Test
 	public void nQueenTest1 () {
@@ -33,9 +33,9 @@ public class NQueenProTest {
 	}
 
 	int expectedResult[][] = new int[][]{{0, 1, 0, 0}, 
-										{0, 0, 0, 1}, 
-										{1, 0, 0, 0}, 
-										{0, 0, 1, 0}};  
+						{0, 0, 0, 1}, 
+						{1, 0, 0, 0}, 
+						{0, 0, 1, 0}};  
 
 	@Test
 	public void nQueenTest () {
