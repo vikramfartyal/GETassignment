@@ -36,7 +36,7 @@ public final class Poly {
 	public float evaluate(float x) {
 		float evaluate = 0;
 		if (length == 0) 
-			return -1;
+			throw new AssertionError("No polynomial given!!!");
 		for (int i = 0; i < coefficient.length; i++) {
 			evaluate += coefficient[i] * Math.pow(x, exponent[i]);
 		}
@@ -49,7 +49,7 @@ public final class Poly {
 	 */
 	public int degree() {
 		if (length == 0) 
-			return -1;
+			throw new AssertionError("No polynomial given!!!");
 		int max = 0;
 		for (int i = 0; i < exponent.length; i++) {
 			if (exponent[i] > max) {
@@ -67,6 +67,8 @@ public final class Poly {
 	 */
 	public Poly addPoly(Poly p1, Poly p2) {
 		Poly p3 = new Poly();
+		if (p1.length == 0 || p2.length == 0)
+			throw new AssertionError("Polynomial do not exist");
 		for (int i = 0, k = 0, j = 0; i < p1.length || i < p2.length; j++) {
 			if (p1.exponent[i] == p2.exponent[k]) {
 				p3.coefficient[j] = p1.coefficient[i] + p2.coefficient[k];
