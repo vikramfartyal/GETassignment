@@ -194,8 +194,9 @@ public final class SparseMatrix {
 				if (sum != 0) {
 					multiply.insert(row, col, sum);
 				}
-			}
+			}			
 		}
+
 		return multiply;
 	}
 
