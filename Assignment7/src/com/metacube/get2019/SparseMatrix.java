@@ -179,34 +179,23 @@ public final class SparseMatrix {
 			int row = sparseMat[i][0];
 			for (j = 0; j < b.len;) {
 				int col = b.sparseMat[j][0];
-				int temp1 = i;
-				int temp2 = j;
 				int sum = 0;
-				while (temp1 < len && sparseMat[temp1][0] == row
-						&& temp2 < b.len && b.sparseMat[temp2][0] == col) {
+				while (i < len && sparseMat[i][0] == row
+						&& j < b.len && b.sparseMat[j][0] == col) {
 
-					if (sparseMat[temp1][1] < b.sparseMat[temp2][1]) {
-						temp1++;
-					} else if (sparseMat[temp1][1] > b.sparseMat[temp2][1]) {
-						temp2++;
+					if (sparseMat[i][1] < b.sparseMat[j][1]) {
+						i++;
+					} else if (sparseMat[i][1] > b.sparseMat[j][1]) {
+						j++;
 					} else {
-						sum += sparseMat[temp1++][2] * b.sparseMat[temp2++][2];
+						sum += sparseMat[i++][2] * b.sparseMat[j++][2];
 					}
 				}
 				if (sum != 0) {
 					multiply.insert(row, col, sum);
 				}
-
-				while (j < b.len && b.sparseMat[j][0] == col) {
-					j++;
-				}
-			}
-
-			while (i < len && sparseMat[i][0] == row) {
-				i++;
 			}
 		}
-
 		return multiply;
 	}
 
