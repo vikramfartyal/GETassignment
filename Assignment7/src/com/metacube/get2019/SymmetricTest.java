@@ -1,6 +1,5 @@
 package com.metacube.get2019;
 
-import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;

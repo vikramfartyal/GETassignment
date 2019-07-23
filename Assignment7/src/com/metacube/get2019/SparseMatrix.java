@@ -222,7 +222,7 @@ public final class SparseMatrix {
 
 		symmetric = this.transpose();
 		for (int i = 0; i < len; i++) {
-			if (sparseMat[i][2] != symmetric.sparseMat[1][2]) {
+			if (sparseMat[i][0] != symmetric.sparseMat[i][0] || sparseMat[i][2] != symmetric.sparseMat[i][2] || sparseMat[i][1] != symmetric.sparseMat[i][1]) {
 				return false;
 			}
 		}
