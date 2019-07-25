@@ -184,7 +184,9 @@ public class Zoo {
 						System.out.println("-----------------------");
 						break;
 					default:
+						System.out.println("-----------------------");
 						System.out.println("Invalid input!!!");
+						System.out.println("-----------------------");
 				    	
 				}
 			}while(!isExit);
@@ -216,11 +218,15 @@ public class Zoo {
 
 					
 				}else{
+					System.out.println("-----------------------");
 					System.out.println("Cage Size Full");
+					System.out.println("-----------------------");
 				} 
 				break;
 			} else {
+				System.out.println("-----------------------");
 				System.out.println("ZoneType and cageType do not matched!!!");
+				System.out.println("-----------------------");
 			}
 		}
 		
