@@ -23,6 +23,7 @@ public class Zoo {
 		Scanner sc = new Scanner(System.in);
 		try {
 			do{
+				System.out.println("------------------");
 				System.out.println("1-Ädd Zone");
 				System.out.println("2-Add Cage");
 				System.out.println("3-Add Animal");
@@ -86,17 +87,14 @@ public class Zoo {
 					    		if ("LION".equals(cageType)){
 					    			String zoneType = Lion.class.getSuperclass().getSimpleName();
 					    			insertIntoTheCage(zoneType , animalCapacity , cageType);
-						    		System.out.println("Cage added successfully!!");
 					    		}
 					    		else if ("CROCODILE".equals(cageType)){
 					    			String zoneType = Crocodile.class.getSuperclass().getSimpleName();
 					    			insertIntoTheCage(zoneType , animalCapacity , cageType);
-						    		System.out.println("Cage added successfully!!");
 					    		}
 					    		else if ("PEACOCK".equals(cageType)){
 					    			String zoneType = Peacock.class.getSuperclass().getSimpleName();
 					    			insertIntoTheCage(zoneType , animalCapacity , cageType);
-						    		System.out.println("Cage added successfully!!");
 					    		} else {
 					    			System.out.println("-----------------------");
 					    			System.out.println("We dont't Have Your Choise");
@@ -214,6 +212,8 @@ public class Zoo {
 					zoneListObj.cageCapacity = zoneListObj.cageCapacity-1;
 					Cage c1 = createCage(cageType,animalCapacity);
 					cageList.add(c1);
+		    		System.out.println("Cage added successfully!!");
+
 					
 				}else{
 					System.out.println("Cage Size Full");
