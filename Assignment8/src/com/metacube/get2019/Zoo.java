@@ -40,7 +40,7 @@ public class Zoo {
 							System.out.println("-----------------------");
 				    		System.out.print("Enter Catergory of Zone among Reptile, Mammal and Bird : ");
 					    	String category = sc.nextLine();
-					    	category.toUpperCase();
+					    	category = category.toUpperCase();
 					    	System.out.print("Enter Cage Capacity of Zone : ");
 					    	int cageCapacity = sc.nextInt();
 					    	sc.nextLine();
@@ -79,7 +79,7 @@ public class Zoo {
 							System.out.println("-----------------------");
 				    		System.out.print("Enter Type of Cage : ");
 					    	String cageType =sc.nextLine();
-					    	cageType.toUpperCase();
+					    	cageType = cageType.toUpperCase();
 					    	System.out.print("Enter animal Capacity of cage : ");
 					    	int animalCapacity =sc.nextInt();
 							System.out.println("-----------------------");
@@ -121,7 +121,7 @@ public class Zoo {
 							System.out.println("-----------------------");
 				    		System.out.print("Enter Type of Animal : ");
 					    	String animalType = sc.nextLine();
-					    	animalType.toUpperCase();
+					    	animalType = animalType.toUpperCase();
 					    	System.out.print("Enter name of Animal : ");
 					    	String animalName = sc.nextLine();
 							System.out.println("-----------------------");
