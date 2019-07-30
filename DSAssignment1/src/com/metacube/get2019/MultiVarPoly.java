@@ -1,18 +1,35 @@
 package com.metacube.get2019;
 
+/**
+ * It is a class to find degree of multivariate polynomial.
+ * @author Khushi
+ *
+ */
 public class MultiVarPoly {
 
 	Node head;
 
+	/**
+	 * It is class used to create a node of linked list.
+	 * @author Khushi
+	 *
+	 */
 	class Node {
 
 		int data;
 		Node right;
 		Node down;
 
+		/**
+		 * It is default constructor of class.
+		 */
 		Node() {
 		}
 
+		/**
+		 * It is a constructor used to intialize a node.
+		 * @param data value of data field of node.
+		 */
 		Node(int data) {
 			this.data = data;
 			right = null;
@@ -21,6 +38,11 @@ public class MultiVarPoly {
 
 	}
 
+	/**
+	 * It is a method which is used to create a linked list.
+	 * @param coeff coefficient of polynomial
+	 * @param expoArr array of exponent of particular coefficient.
+	 */
 	public void createLinkList(int coeff, int[] expoArr) {
 		Node newNode = new Node(coeff);
 		if (head == null) {
@@ -40,6 +62,9 @@ public class MultiVarPoly {
 
 	}
 	
+	/**
+	 * It is a method used to show a linked list.
+	 */
 	public void show() {
 		Node temp = head;
 		if (head == null) {
@@ -59,6 +84,9 @@ public class MultiVarPoly {
 		}
 	}
 	
+	/**
+	 * It is a method used to find degree of the polynomial.
+	 */
 	public void findDegree() {
 		int max = 0;
 		if (head == null) {
