@@ -96,10 +96,6 @@ public class RotateLinkList {
 	 */
 	public void insert(int data) {
 		Node newNode = new Node(data);
-		newNode.data = data;
-		if (head == null) {
-			head = newNode;
-		}
 		newNode.next = head;
 		head = newNode;
 
@@ -113,7 +109,7 @@ public class RotateLinkList {
 			System.out.println("No elemets in the list!!!");
 			return;
 		}
-		Node temp = new Node();
+		Node temp;
 		temp = head;
 		System.out.println("---------------------------------------");
 		System.out.print("LINKED LIST : ");
