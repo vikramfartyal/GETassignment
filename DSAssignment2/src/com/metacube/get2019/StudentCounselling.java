@@ -107,5 +107,6 @@ public class StudentCounselling {
 			}
 		}
 		wb2.write();
+		wb2.close();
 	}
 }
