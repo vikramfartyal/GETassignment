@@ -77,7 +77,7 @@ public class Tree {
 	 */
 	public boolean search(Node node, String folderName) {
 		try {
-			if ("null".equals(node.children)) {
+			if (node.children == null) {
 				return false;
 			}
 			for (Node i : node.children) {
@@ -103,7 +103,7 @@ public class Tree {
 	public void breadthFirstTraversal(Node node) {
 		try {
 			System.out.printf("  ");
-			if ("null".equals(node.children)) {
+			if (node.children == null) {
 				System.out.println();
 				return;
 			}
@@ -133,7 +133,7 @@ public class Tree {
 	 */
 	public void listOfAllChildren() {
 		try {
-			if ("null".equals(current.children)) {
+			if (current.children == null) {
 				System.out.println(0);
 			}
 			System.out.println(current.children.size());
