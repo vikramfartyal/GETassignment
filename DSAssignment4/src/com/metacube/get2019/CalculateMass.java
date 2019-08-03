@@ -28,19 +28,25 @@ public class CalculateMass {
 		int massOfMolecule = 0;
 		Stack<Integer> stack = new Stack<Integer>();
 		for (int i = 0; i < comFormula.length(); i++) {
-			if (comFormula.charAt(i) == ')') {
-				
+			if (comFormula.charAt(i) == ')') {				
 				while (stack.peek() != 0) {
 					sum += stack.pop();
 				}
 				stack.push(sum);
 			}
 			else if (Character.isDigit(comFormula.charAt(i))) {
-				stack.push((stack.pop()) * (Character.getNumericValue(comFormula.charAt(i)))) ;
+				int j = 0;
+				String strBase = "";
+				while ((i+j) < comFormula.length() && Character.isDigit(comFormula.charAt(i + j))) {
+					strBase = strBase.concat(comFormula.charAt(i + j) + "");
+					j++;
+				}
+				int temp = Integer.parseInt(strBase);
+				i = i + (--j);
+				stack.push((stack.pop()) * temp) ;
 			}
 			else {
 				stack.push(map.get(comFormula.charAt(i)));
-
 			}
 		}
 		while (!stack.isEmpty()) {
