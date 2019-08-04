@@ -5,36 +5,11 @@ package com.metacube.get2019;
  * @author Khushi
  *
  */
-public class RotateLinkList {
+public class RotateLinkList extends Node {
 
 	Node head;
+	Node lastNode;
 
-	/**
-	 * It is class used to create a node of linked list.
-	 * @author Khushi
-	 *
-	 */
-	class Node {
-
-		int data;
-		Node next = null;
-
-		/**
-		 * It is default constructor of class.
-		 */
-		Node() {
-		}
-
-		/**
-		 * It is a constructor used to intialize a node.
-		 * @param data value of data field of node.
-		 */
-		Node(int data) {
-			this.data = data;
-			next = null;
-		}
-	}
-	
 	/**
 	 * It is a method used to rotate a subList of a linked list
 	 * @param left left position of sublist.
@@ -96,28 +71,32 @@ public class RotateLinkList {
 	 */
 	public void insert(int data) {
 		Node newNode = new Node(data);
-		newNode.next = head;
-		head = newNode;
-
+		if (head == null) {
+			head = newNode;
+			lastNode = head;
+			return;
+		}
+		lastNode.next = newNode;
+		lastNode = newNode;
+	}
+	
+	/**
+	 * It is a method to return head.
+	 * @return head of linked list.
+	 */
+	public Node getHead() {
+		return head;
 	}
 	
 	/**
 	 * It is a method used to show elements of a linked list.
 	 */
-	public void show() {
-		if (head == null) {
-			System.out.println("No elemets in the list!!!");
-			return;
-		}
-		Node temp;
-		temp = head;
-		System.out.println("---------------------------------------");
-		System.out.print("LINKED LIST : ");
-		while (temp != null) {
+	public void show(Node temp) {
+		if (temp != null){
 			System.out.print(temp.data + "->");
 			temp = temp.next;
+			show(temp);
 		}
-		System.out.println("\n---------------------------------------");
 	}
  
 }
