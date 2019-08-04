@@ -48,7 +48,11 @@ public class RotateMain {
 					rotObj.rotateLinkList(left, right, numberOfrotation);
 					break;
 				case 3 :
-					rotObj.show();
+					Node head = rotObj.getHead();
+					System.out.println("---------------------------------------");
+					System.out.print("LINKED LIST : ");
+					rotObj.show(head);
+					System.out.println("\n---------------------------------------");
 					break;
 				case 4:
 					isExit = true;
