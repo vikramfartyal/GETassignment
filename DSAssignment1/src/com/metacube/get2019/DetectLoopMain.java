@@ -46,11 +46,17 @@ public class DetectLoopMain {
 					break;
 				case 3 :
 					System.out.println("---------------------------------------");
-					boolean result = detLoopObj.detectLoop();
+					Node head1 = detLoopObj.getHead();
+					boolean result = detLoopObj.detectLoop(head1, head1);
+					//boolean result = detLoopObj.detectLoop();
 					System.out.println("Loop found in the linked list : "+result);
 					break;
 				case 4 :
-					detLoopObj.show();
+					Node head = detLoopObj.getHead();
+					System.out.println("---------------------------------------");
+					System.out.print("LINKED LIST : ");
+					detLoopObj.show(head);
+					System.out.println("\n---------------------------------------");
 					break;
 				case 5 :
 					isExit = true;
