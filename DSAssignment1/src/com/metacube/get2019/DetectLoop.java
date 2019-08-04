@@ -1,46 +1,34 @@
 package com.metacube.get2019;
 
-
 /**
  * It is a class which is used to detect a loop in the linked list
  * @author Khushi
  *
  */
-public class DetectLoop {
+public class DetectLoop extends Node{
 
 	Node head;
+	Node lastNode;
 
-	/**
-	 * It is class used to create a node of linked list.
-	 * @author Khushi
-	 *
-	 */
-	class Node {
-
-		int data;
-		Node next = null;
-
-		/**
-		 * It is default constructor of class.
-		 */
-		Node() {
-		}
-
-		/**
-		 * It is a constructor used to intialize a node.
-		 * @param data value of data field of node.
-		 */
-		Node(int data) {
-			this.data = data;
-			next = null;
-		}
-	}
-	
 	/**
 	 * It is a method used to check whether there is a loop in linked list or not.
 	 * @return boolean value
 	 */
-	public boolean detectLoop() {
+	
+	public boolean detectLoop(Node slowPtr, Node fastPtr) {
+		if (slowPtr != null && fastPtr != null && fastPtr.next != null) {
+			slowPtr = slowPtr.next;
+			fastPtr = fastPtr.next.next;
+			if (slowPtr == fastPtr) {
+				return true;
+			}
+			else {
+				return detectLoop(slowPtr, fastPtr);
+			}
+		}
+		return false;
+	}
+	/*public boolean detectLoop() {
 		
 		if (head == null) {
 			System.out.println("No elements are there in the list!!!");
@@ -56,7 +44,7 @@ public class DetectLoop {
 			}
 		}
 		return false;
-	}
+	}*/
 	
 	/**
 	 * It is method used to insert an element at the starting of linked list.
@@ -64,13 +52,13 @@ public class DetectLoop {
 	 */
 	public void insert(int data) {
 		Node newNode = new Node(data);
-		newNode.data = data;
 		if (head == null) {
 			head = newNode;
+			lastNode = head;
 			return;
 		}
-		newNode.next = head;
-		head = newNode;
+		lastNode.next = newNode;
+		lastNode = newNode;
 
 	}
 	
@@ -87,7 +75,6 @@ public class DetectLoop {
 			return;
 		}
 		Node temp = head;
-		Node temp1 = head;
 		while (count != k) {
 			if (temp == null) {
 				System.out.println("---------------------------------------");
@@ -98,29 +85,26 @@ public class DetectLoop {
 			temp = temp.next;
 			count++;
 		}
-		while (temp1.next != null) {
-			temp1 = temp1.next;
-		}
-		temp1.next = temp;
+		lastNode.next = temp;
+	}
+	
+	/**
+	 * It is a method to return head.
+	 * @return head of linked list.
+	 */
+	public Node getHead() {
+		return head;
 	}
 	
 	/**
 	 * It is a method used to show elements of a linked list.
 	 */
-	public void show() {
-		if (head == null) {
-			System.out.println("No elemets in the list!!!");
-			return;
-		}
-		Node temp = new Node();
-		temp = head;
-		System.out.println("---------------------------------------");
-		System.out.print("LINKED LIST : ");
-		while (temp != null) {
+	public void show(Node temp) {
+		if (temp != null){
 			System.out.print(temp.data + "->");
 			temp = temp.next;
+			show(temp);
 		}
-		System.out.println("\n---------------------------------------");
 	}
  
 }
