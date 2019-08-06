@@ -44,7 +44,7 @@ public class DictionaryMain {
 				System.out.println("------------------------------");
 				switch(choice) {
 				case 1 :
-					Object obj = new JSONParser().parse(new FileReader("C:\\Users\\praka_000\\workspace\\DSAssignment5\\src\\com\\metacube\\get2019\\data.json")); 
+					Object obj = new JSONParser().parse(new FileReader("C:\\Users\\Khushi\\workspace\\DSAssignment5\\src\\com\\metacube\\get2019\\data.json")); 
 					JSONObject jsonObj = (JSONObject) obj;
 					dictObj1 = new DictImp(jsonObj);	  
 					break;
