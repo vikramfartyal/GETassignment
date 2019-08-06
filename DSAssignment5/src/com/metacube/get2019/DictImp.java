@@ -55,7 +55,8 @@ public class DictImp implements Dictionary {
 		if (root == null) {
 			root = new TreeNode(key, value);
 		} else {
-			addRec(key, value, root);
+			TreeNode temp = root;
+			addRec(key, value, temp);
 		}
 		return false;
 	}
@@ -83,7 +84,7 @@ public class DictImp implements Dictionary {
 				treeNode.right.parent = treeNode;
 			}
 		} else {
-			treeNode = new TreeNode(key, value);
+			treeNode = new TreeNode(key, value); 
 		}
 		return true;
 	}
@@ -94,7 +95,7 @@ public class DictImp implements Dictionary {
 	 */
 	public boolean delete(String key) {
 
-		if (key.length() == 0 || key == null) {
+		if (key.length() == 0 || key.equals(null)) {
 			throw new NullPointerException("Invalid key and value");
 		}
 		if (root == null) {
@@ -114,11 +115,11 @@ public class DictImp implements Dictionary {
 	private boolean deleteRec(String key, TreeNode treeNode) {
 		if (key.compareTo(treeNode.key) <= -1) {
 			if (treeNode.left != null) {
-				return deleteRec(key, treeNode.left);
+				deleteRec(key, treeNode.left);
 			}
 		} else if (key.compareTo(treeNode.key) >= 1) {
 			if (treeNode.right != null) {
-				return deleteRec(key, treeNode.right);
+				deleteRec(key, treeNode.right);
 			}
 		} else if (key.compareTo(treeNode.key) == 0) {
 			if (treeNode.left == null && treeNode.right == null) {
@@ -128,26 +129,26 @@ public class DictImp implements Dictionary {
 					treeNode.parent.right = null;
 				}
 			}
-		} else if (treeNode.left == null && treeNode.right != null) {
-			if (treeNode.parent.left == treeNode) {
-				treeNode.parent.left = treeNode.right;
-			} else {
-				treeNode.parent.right = treeNode.right;
+			else if (treeNode.left == null && treeNode.right != null && treeNode.parent != null) {
+				if (treeNode.parent.left == treeNode) {
+					treeNode.parent.left = treeNode.right;
+				} else {
+					treeNode.parent.right = treeNode.right;
+				}
+			} else if (treeNode.right == null && treeNode.left != null && treeNode.parent != null) {
+				if (treeNode.parent.right == treeNode) {
+					treeNode.parent.right = treeNode.left;
+				} else {
+					treeNode.parent.left = treeNode.left;
+				}
 			}
-		} else if (treeNode.right == null && treeNode.left != null) {
-			if (treeNode.parent.right == treeNode) {
-				treeNode.parent.right = treeNode.left;
-			} else {
-				treeNode.parent.left = treeNode.left;
+			else {
+				TreeNode inorderSucc = findMin(treeNode.right);
+				treeNode.key = inorderSucc.key;
+				treeNode.value = inorderSucc.value;
+				deleteRec(inorderSucc.key, inorderSucc);
 			}
 		}
-		else {
-			TreeNode inorderSucc = findMin(treeNode.left);
-			treeNode.key = inorderSucc.key;
-			treeNode.value = inorderSucc.value;
-			return deleteRec(inorderSucc.key, inorderSucc);
-		}
-
 		return true;
 	}
 
@@ -179,6 +180,7 @@ public class DictImp implements Dictionary {
 		return list;
 	}
 
+	
 	/**
 	 * It is a method to get value corresponding to particular key.
 	 */
@@ -215,7 +217,8 @@ public class DictImp implements Dictionary {
 	public List<Value> getAll() {
 		List<Value> valueList = new ArrayList<Value>();
 		if (root != null) {
-			valueList = inorderRec(root, valueList);
+			TreeNode temp = root;
+			valueList = inorderRec(temp, valueList);
 		}
 		return valueList;
 	}
