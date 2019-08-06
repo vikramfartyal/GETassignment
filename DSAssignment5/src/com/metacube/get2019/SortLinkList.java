@@ -1,20 +1,12 @@
 package com.metacube.get2019;
 
-/**'
- * It is a class to sort a linked list.
- * @author Khushi.
- *
- */
 public class SortLinkList {
 
 	Node head;
 	Node lastNode;
 	Node sorted;
 	
-	/**
-	 * It is a method for calling sorting function.
-	 * @param temp reference to head.
-	 */
+	
 	public void insertionSort(Node temp) {
 		sorted = null;
 		Node current = temp;
@@ -26,10 +18,6 @@ public class SortLinkList {
 		head = sorted;
 	}
 	
-	/**
-	 * It is a method to sort linked list.
-	 * @param temp 
-	 */
 	private void sort(Node temp) {
 		if (sorted == null || compare(sorted.data, temp.data)) {
 			temp.next = sorted;
@@ -37,7 +25,7 @@ public class SortLinkList {
 		}
 		else {
 			Node current = sorted;
-			while (current.next != null && (compare(current.next.data, temp.data))) {
+			while (current.next != null && (current.next.data.getSalary() >  temp.data.getSalary())) {
 				current = current.next;
 			}
 			temp.next = current.next;
@@ -86,7 +74,8 @@ public class SortLinkList {
 	 */
 	private boolean compare (Employee e1, Employee e2) {
 		boolean result =  (e1.getSalary() < e2.getSalary() ||
-				(e1.getSalary() == e2.getSalary() && e1.getAge() < e2.getAge()));
+				(e1.getSalary() == e2.getSalary() && e1.getAge() > e2.getAge()));
+		System.out.println(result);
 		return result;
 	}
 }
