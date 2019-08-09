@@ -11,16 +11,16 @@ public class UniqueCharacter {
 			return map.get(str);
 		}
 		else {
-			boolean count[] = new boolean[Character.MAX_VALUE];
+			int count[] = new int[Character.MAX_VALUE];
 			for (int i = 0; i < str.length(); i++) {
 				if (str.charAt(i) == ' '){
 					continue;
 				}
-				count[str.charAt(i)] = true;
+				count[str.charAt(i)]++;
 			}
 			int noOfChar = 0;
 			for (int i = 0; i < count.length; i++) {
-				if (count[i]) {
+				if (count[i] == 1) {
 					noOfChar++;
 				}
 			}
