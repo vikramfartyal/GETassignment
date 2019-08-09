@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 public class UniqueCharacter {
 	
-	HashMap<String, Integer> map = new HashMap<>(); 
+	HashMap<String, Integer> uniqueChar = new HashMap<>(); 
 	
 	public int noOfUniqueChar(String str) {
 		if (map.containsKey(str)) {
