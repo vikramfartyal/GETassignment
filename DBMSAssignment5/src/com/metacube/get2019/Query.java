@@ -16,7 +16,6 @@ public class Query {
 		String query1 = "select p.order_id, p.order_date, p.order_amount from product_order as p "
 				+ " inner join order_item as o on p.order_id = o.order_id "
 				+ " where p.user_id = " + id + " and product_status = 'Shipped' "
-				+ " group by order_id "
 				+ " order by order_date" ;
 		return query1;
 	}
