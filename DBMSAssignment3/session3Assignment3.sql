@@ -1,22 +1,20 @@
 /* Assignment 3 Question -1 */
 
 select u.user_id, user_name, email_id, phone_no, count(*) as no_of_orders
-from user_order as UO inner join user as u 
-on UO.user_id = u.user_id
+from user as u 
 inner join product_order as o
-on o.order_id = UO.order_id
+on o.user_id = u.user_id
 where datediff(curdate(), o.order_date) <= 30
-group by UO.user_id;
+group by u.user_id;
 
 
 /* Assignment - 3 Question - 2 */
 select u.user_name
-from user_order as UO inner join user as u 
-on UO.user_id = u.user_id
+from user as u 
 inner join product_order as o
-on o.order_id = UO.order_id
+on o.user_id = u.user_id
 where datediff(curdate(), o.order_date) <= 30
-group by UO.user_id
+group by u.user_id
 order by o.order_amount desc
 limit 10;
 
